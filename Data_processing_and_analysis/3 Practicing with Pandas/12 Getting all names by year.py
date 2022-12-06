@@ -8,7 +8,7 @@ df = pd.read_csv(r'D:\Big Data\python\pandas\Data_processing_and_analysis\3 Prac
 
 # Сравнение количества имён мальчиков с количеством имён девочек. groupby по году и полу
 df2 = df.groupby(['Year', 'Sex']).sum()
-# df2 = df.groupby(['Year', 'Sex'])['Cnt'].sum()
+# df2 = df.groupby(['Year', 'Sex'])['Cnt'].sum() # Если график через df2.plot(kind="bar")
 print(df2)
 
 # Работа с мультииндексами
@@ -17,7 +17,7 @@ print(df2)
 # # Выбрать всех девочек
 # print(df2.loc[ df2.index.get_level_values(1) == 'F'])
 # print(df2.loc[ df2.index.get_level_values(0) == 2019])
-# print(df2.loc[ df2.index.get_level_values(0).isin([1880, 2019])])
+# print(df2.loc[ df2.index.get_level_values(0).isin([1880, 2019])]) # 1880 и 2019
 #  # С 2010 по 2019
 # print(df2.loc[ df2.index.get_level_values(0).isin(range(2010, 2020))])
 # print(df2[ df2.index.get_level_values(0).isin(range(2010, 2020))])
@@ -61,7 +61,7 @@ def getDecades(year):
     Hristos = 1800
     while (year >= Hristos):
         Hristos += 10
-    return f'{Hristos-10}-{Hristos-10+9}'
+    return f'{Hristos-10}-{Hristos-10+9}' # Строка
 
 df['Decades'] = df.Year.apply(getDecades)
 print(df)
@@ -116,4 +116,3 @@ plt.show()
 # # Метод 1: предоставление нескольких столбцов в параметре y
 # df.plot(x="Name", y=["Age", "Height(in cm)"], kind="bar")
 # plt.show()
-
